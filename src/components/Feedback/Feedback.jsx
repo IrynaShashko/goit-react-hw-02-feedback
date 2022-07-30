@@ -17,19 +17,16 @@ class Feedback extends Component {
   };
 
   handleIncrementGood = e => {
-    console.log('cliiiik', e.target.name);
     this.setState({
       good: this.state.good + 1,
     });
   };
   handleIncrementNeutral = e => {
-    console.log('cliiiik', e.target.name);
     this.setState({
       neutral: this.state.neutral + 1,
     });
   };
   handleIncrementBad = e => {
-    console.log('cliiiik', e.target.name);
     this.setState({
       bad: this.state.bad + 1,
     });
