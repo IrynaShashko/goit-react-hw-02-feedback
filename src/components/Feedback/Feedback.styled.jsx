@@ -10,7 +10,8 @@ export const ContainerFeedback = styled.div`
 `;
 
 export const Header = styled.h1`
-  font-size: 50px;
+  margin: 0 auto;
+  font-size: 60px;
   font-weight: bold;
   color: #010000;
 `;

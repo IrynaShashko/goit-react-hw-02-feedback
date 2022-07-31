@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
-import Feedback from './Feedback/Feedback';
-import Statistics from './Statistics/Statistics';
-import { Container, CardContainer } from '../components/App.styled';
+import Feedback from '../Feedback/Feedback';
+import Statistics from '../Statistics/Statistics';
+import { Container, CardContainer } from '../App/App.styled';
 
 class App extends Component {
   state = {
@@ -9,19 +9,17 @@ class App extends Component {
     neutral: 0,
     bad: 0,
   };
-  handleIncrementGood = e => {
-    console.log(e);
+  handleIncrementGood = () => {
     this.setState({
       good: this.state.good + 1,
     });
-    console.log(this.state.good);
   };
-  handleIncrementNeutral = e => {
+  handleIncrementNeutral = () => {
     this.setState({
       neutral: this.state.neutral + 1,
     });
   };
-  handleIncrementBad = e => {
+  handleIncrementBad = () => {
     this.setState({
       bad: this.state.bad + 1,
     });
@@ -46,7 +44,13 @@ class App extends Component {
             onIncrementNeutral={this.handleIncrementNeutral}
             onIncrementBad={this.handleIncrementBad}
           />
-          <Statistics good={10} neutral={5} bad={6} />
+          <Statistics
+            good={this.state.good}
+            neutral={this.state.neutral}
+            bad={this.state.bad}
+            total={this.countTotalFeedback()}
+            positivePercentage={this.countPositiveFeedbackPercentage()}
+          />
         </CardContainer>
       </Container>
     );

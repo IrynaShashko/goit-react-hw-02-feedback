@@ -7,7 +7,6 @@ export const StatisticsContainer = styled.div`
   justify-content: center;
   align-items: center;
   background-color: #f5f5f5;
-  padding: 20px;
   background-color: transparent;
 `;
 
