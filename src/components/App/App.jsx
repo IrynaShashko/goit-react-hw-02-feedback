@@ -9,25 +9,18 @@ class App extends Component {
     neutral: 0,
     bad: 0,
   };
-  handleIncrementGood = () => {
-    this.setState({
-      good: this.state.good + 1,
-    });
+
+  handleClick = option => {
+    this.setState(prevState => ({
+      [option]: prevState[option] + 1,
+    }));
   };
-  handleIncrementNeutral = () => {
-    this.setState({
-      neutral: this.state.neutral + 1,
-    });
-  };
-  handleIncrementBad = () => {
-    this.setState({
-      bad: this.state.bad + 1,
-    });
-  };
+
   countTotalFeedback = () => {
     const total = this.state.good + this.state.neutral + this.state.bad;
     return total;
   };
+
   countPositiveFeedbackPercentage = () => {
     const positiveFeedback = Math.floor(
       (this.state.good * 100) /
@@ -35,14 +28,14 @@ class App extends Component {
     );
     return positiveFeedback;
   };
+
   render() {
     return (
       <Container>
         <CardContainer>
           <Feedback
-            onIncrementGood={this.handleIncrementGood}
-            onIncrementNeutral={this.handleIncrementNeutral}
-            onIncrementBad={this.handleIncrementBad}
+            onLeaveFeedback={this.handleClick}
+            options={Object.keys(this.state)}
           />
           <Statistics
             good={this.state.good}
